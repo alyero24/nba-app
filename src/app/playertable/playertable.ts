@@ -11,6 +11,7 @@ interface Player {
   ALL_NBA_Defense: number;
   All_Star: number;
   IsActive: boolean;
+  Basketball_Reference: string;
 }
 
 @Component({
@@ -31,6 +32,7 @@ export class Playertable {
       ALL_NBA_Defense: 9,
       All_Star: 14,
       IsActive: false,
+      Basketball_Reference: 'https://www.basketball-reference.com/players/j/jordami01.html',
     },
     {
       Name: 'Shaquille Oneal',
@@ -42,10 +44,11 @@ export class Playertable {
       ALL_NBA_Defense: 3,
       All_Star: 15,
       IsActive: false,
+      Basketball_Reference: 'https://www.basketball-reference.com/players/o/onealsh01.html',
     },
     {
       Name: 'Kobe Bryant',
-      Nick_Name: 'Black Mamba',
+      Nick_Name: 'The Black Mamba',
       Seasons_Played: 20,
       NBA_Championships: 5,
       MVPs: 1,
@@ -53,6 +56,7 @@ export class Playertable {
       ALL_NBA_Defense: 12,
       All_Star: 18,
       IsActive: false,
+      Basketball_Reference: 'https://www.basketball-reference.com/players/b/bryanko01.html',
     },
     {
       Name: 'LeBron James',
@@ -64,6 +68,7 @@ export class Playertable {
       ALL_NBA_Defense: 6,
       All_Star: 22,
       IsActive: true,
+      Basketball_Reference: 'https://www.basketball-reference.com/players/j/jamesle01.html',
     },
     {
       Name: 'Steph Curry',
@@ -75,6 +80,7 @@ export class Playertable {
       ALL_NBA_Defense: 0,
       All_Star: 11,
       IsActive: true,
+      Basketball_Reference: 'https://www.basketball-reference.com/players/c/curryst01.html',
     },
     {
       Name: 'Tim Duncan',
@@ -86,6 +92,7 @@ export class Playertable {
       ALL_NBA_Defense: 15,
       All_Star: 15,
       IsActive: false,
+      Basketball_Reference: 'https://www.basketball-reference.com/players/d/duncati01.html',
     },
     {
       Name: 'Magic Johnson',
@@ -97,6 +104,7 @@ export class Playertable {
       ALL_NBA_Defense: 0,
       All_Star: 12,
       IsActive: false,
+      Basketball_Reference: 'https://www.basketball-reference.com/players/j/johnsma02.html',
     },
     {
       Name: 'Larry Bird',
@@ -108,6 +116,7 @@ export class Playertable {
       ALL_NBA_Defense: 3,
       All_Star: 12,
       IsActive: false,
+      Basketball_Reference: 'https://www.basketball-reference.com/players/b/birdla01.html',
     },
     {
       Name: 'Kevin Durant',
@@ -119,6 +128,7 @@ export class Playertable {
       ALL_NBA_Defense: 0,
       All_Star: 15,
       IsActive: true,
+      Basketball_Reference: 'https://www.basketball-reference.com/players/d/duranke01.html',
     },
     {
       Name: 'Giannis Antetokounmpo',
@@ -130,6 +140,7 @@ export class Playertable {
       ALL_NBA_Defense: 5,
       All_Star: 10,
       IsActive: true,
+      Basketball_Reference: 'https://www.basketball-reference.com/players/a/antetgi01.html',
     },
     {
       Name: 'Nikola Jokic',
@@ -141,6 +152,21 @@ export class Playertable {
       ALL_NBA_Defense: 0,
       All_Star: 8,
       IsActive: true,
+      Basketball_Reference: 'https://www.basketball-reference.com/players/j/jokicni01.html',
     },
   ];
+  sortDirection: boolean = true;
+
+  sortData(field: keyof Player) {
+    this.sortDirection = !this.sortDirection;
+
+    this.players.sort((a, b) => {
+      const valA = a[field];
+      const valB = b[field];
+
+      if (valA < valB) return this.sortDirection ? -1 : 1;
+      if (valA > valB) return this.sortDirection ? 1 : -1;
+      return 0;
+    });
+  }
 }

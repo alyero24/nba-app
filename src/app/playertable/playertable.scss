@@ -30,3 +30,16 @@ tbody tr:nth-child(even) {
 tbody tr:hover {
   background-color: #bec0c2; /* A light, cool gray/silver color for contrast */
 }
+/* Add this class to your <img> tag: <img class="banner-image" ...> */
+.banner-image {
+  max-width: 70%; /* Ensures the image doesn't stretch beyond the screen width */
+  height: auto; /* Maintains the aspect ratio when scaling down */
+  display: block; /* Centers the image if you wrap it in a container */
+  margin: 0 auto 20px auto; /* Centers horizontally and adds space below */
+  border-radius: 8px; /* Matches the professional table style */
+}
+
+/* Optional: To prevent the image from being blurry when scaled down */
+img {
+  image-rendering: high-quality;
+}

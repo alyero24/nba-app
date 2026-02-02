@@ -1,32 +1,29 @@
-<!-- The main container for the table -->
+<img src="JVRT65.jpg" alt="NBA Players Banner" class="banner-image" />
+
 <table>
-  <!-- The head section for headers/labels -->
   <thead>
     <tr>
-      <!-- Use <th> tags for your column headers -->
-      <th>Name</th>
-      <th>Nickname</th>
-      <th>Seasons Played</th>
-      <th>Championships</th>
-      <th>MVPs</th>
-      <th>All-NBA</th>
-      <th>All-Defense</th>
-      <th>All-Star</th>
-      <th>Active</th>
+      <!-- Sortable Headers -->
+      <th (click)="sortData('Name')" style="cursor: pointer">Name ↕</th>
+      <th (click)="sortData('Nick_Name')" style="cursor: pointer">Nickname ↕</th>
+      <th (click)="sortData('Seasons_Played')" style="cursor: pointer">Seasons ↕</th>
+      <th (click)="sortData('NBA_Championships')" style="cursor: pointer">Rings ↕</th>
+      <th (click)="sortData('MVPs')" style="cursor: pointer">MVPs ↕</th>
+      <th (click)="sortData('All_NBA')" style="cursor: pointer">All-NBA ↕</th>
+      <th (click)="sortData('ALL_NBA_Defense')" style="cursor: pointer">All-Def ↕</th>
+      <th (click)="sortData('All_Star')" style="cursor: pointer">All-Star ↕</th>
+      <th (click)="sortData('IsActive')" style="cursor: pointer">Active ↕</th>
     </tr>
   </thead>
 
-  <!-- The body section where the actual player data will go -->
   <tbody>
-    <!-- The body section where the actual player data will go -->
-  </tbody>
-
-  <tbody>
-    <!-- Start the @for loop: for each player in the 'players' array, create a <tr> -->
     @for (player of players; track player.Name) {
       <tr>
-        <!-- Use interpolation {{ }} to display each property within table data <td> cells -->
-        <td>{{ player.Name }}</td>
+        <td>
+          <a [href]="player.Basketball_Reference" target="_blank" rel="noopener">
+            {{ player.Name }}
+          </a>
+        </td>
         <td>{{ player.Nick_Name }}</td>
         <td>{{ player.Seasons_Played }}</td>
         <td>{{ player.NBA_Championships }}</td>
@@ -34,9 +31,15 @@
         <td>{{ player.All_NBA }}</td>
         <td>{{ player.ALL_NBA_Defense }}</td>
         <td>{{ player.All_Star }}</td>
-        <td>{{ player.IsActive }}</td>
+        <td>{{ player.IsActive ? 'Yes' : 'No' }}</td>
+      </tr>
+    } @empty {
+      <!-- Restored Empty State -->
+      <tr>
+        <td colspan="9" style="text-align: center; padding: 20px">
+          No players match your criteria.
+        </td>
       </tr>
     }
-    <!-- End the @for loop -->
   </tbody>
 </table>
