@@ -1,0 +1,42 @@
+<!-- The main container for the table -->
+<table>
+  <!-- The head section for headers/labels -->
+  <thead>
+    <tr>
+      <!-- Use <th> tags for your column headers -->
+      <th>Name</th>
+      <th>Nickname</th>
+      <th>Seasons Played</th>
+      <th>Championships</th>
+      <th>MVPs</th>
+      <th>All-NBA</th>
+      <th>All-Defense</th>
+      <th>All-Star</th>
+      <th>Active</th>
+    </tr>
+  </thead>
+
+  <!-- The body section where the actual player data will go -->
+  <tbody>
+    <!-- The body section where the actual player data will go -->
+  </tbody>
+
+  <tbody>
+    <!-- Start the @for loop: for each player in the 'players' array, create a <tr> -->
+    @for (player of players; track player.Name) {
+      <tr>
+        <!-- Use interpolation {{ }} to display each property within table data <td> cells -->
+        <td>{{ player.Name }}</td>
+        <td>{{ player.Nick_Name }}</td>
+        <td>{{ player.Seasons_Played }}</td>
+        <td>{{ player.NBA_Championships }}</td>
+        <td>{{ player.MVPs }}</td>
+        <td>{{ player.All_NBA }}</td>
+        <td>{{ player.ALL_NBA_Defense }}</td>
+        <td>{{ player.All_Star }}</td>
+        <td>{{ player.IsActive }}</td>
+      </tr>
+    }
+    <!-- End the @for loop -->
+  </tbody>
+</table>

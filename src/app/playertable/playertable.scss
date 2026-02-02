@@ -1,0 +1,32 @@
+/* Target the main table element */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Collapse borders into a single line */
+  margin-top: 20px;
+}
+
+/* Target all header and data cells */
+th,
+td {
+  border: 1px solid #ddd; /* Use a light gray for cell borders */
+  padding: 12px;
+  text-align: left;
+}
+
+/* Style the table header background to match NBA blue */
+thead th {
+  background-color: #17408b; /* NBA Metallic Blue */
+  color: white;
+  font-weight: bold;
+}
+
+/* Add a subtle zebra-striping effect to alternating body rows, using a light background and an NBA red line */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* A very light gray background */
+  border-left: 5px solid #c9082a; /* Add a striking NBA British Red line on the left */
+}
+
+/* Add a hover effect for better interactivity, using a lighter shade of the NBA blue */
+tbody tr:hover {
+  background-color: #bec0c2; /* A light, cool gray/silver color for contrast */
+}
